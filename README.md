@@ -1,8 +1,8 @@
 # Roadmap
 
-- [ ] Initializing board and displaying board
-- [ ] Storing and loading board from file
-- [ ] Player movement - detect char input and suppress default behaviour
+- [x] Initializing and rendering board
+- [ ] Loading maps from text files
+- [ ] Player movement - detect input and suppress default terminal behaviour, 
 - [ ] Colission checking
 - [ ] Ghost AI
-- [ ] User interface - level selection, scoreboard
+- [ ] User interface - level selection, scoreboard,...
