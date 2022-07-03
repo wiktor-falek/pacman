@@ -97,12 +97,6 @@ fn generate_board(width: i32, height: i32) -> Board {
    return board;
 }
 
-// IDE NA OBIAD
-// SMACZNEGO
-// DZIEKI
-// NP
-// https://preview.redd.it/xe4n0fzhi6691.png?width=640&crop=smart&auto=webp&s=02144f09b6372fa60a6e953f17f9f1dac6425fa0
-
 fn print_board(board: Board) {
    fn tile_to_char(num: i32) -> char {
       match num {
@@ -124,5 +118,5 @@ fn print_board(board: Board) {
       }
       buffer.push_str("\n");
    }
-   print!("{}", buffer)
+   print!("{}", buffer);
 }
