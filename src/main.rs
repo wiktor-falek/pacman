@@ -1,14 +1,14 @@
 fn main() {
    // initialization
-   let board = generate_test_board();
-   print_board(board);
+   let mut board = generate_test_board();
+   render_board(board);
 
    /*
    loop {
-      // update
-      
+      board = update_board(board);
+
       // draw
-      print_board(board);
+      render_board(board);
    }
    */
 }
@@ -27,30 +27,6 @@ struct Board {
    height: i32,
    map: Vec<Vec<i32>>
 }
-
-/* Temporary level 
-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
-1 0 1 1 1 1 0 1 1 1 0 1 1 0 1 1 1 1 0 1 
-1 0 1 1 1 1 0 1 1 1 0 1 1 0 1 1 1 1 0 1 
-1 0 1 0 0 0 0 0 1 1 0 1 0 0 0 0 0 1 0 1 
-1 0 1 0 1 1 1 0 1 1 0 1 0 1 1 1 0 1 0 1 
-1 0 1 0 1 1 1 0 1 1 0 1 0 1 1 1 0 1 0 1 
-1 0 1 0 1 1 0 0 0 0 0 0 0 0 1 1 0 1 0 1 
-1 0 1 0 1 1 0 1 1 0 1 1 1 0 1 1 0 1 0 1 
-1 0 0 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 1 
-1 0 1 0 1 1 0 1 1 1 1 1 1 0 1 1 0 1 0 1 
-1 0 1 0 1 1 0 0 0 0 0 0 0 0 1 1 0 1 0 1 
-1 0 1 0 1 1 1 0 1 0 1 1 0 1 1 1 0 1 0 1 
-1 0 1 0 1 1 1 0 1 0 1 1 0 1 1 1 0 1 0 1 
-1 0 1 0 0 0 0 0 1 0 1 1 0 0 0 0 0 1 0 1 
-1 0 1 1 1 1 0 1 1 0 1 1 1 0 1 1 1 1 0 1 
-1 0 1 1 1 1 0 1 1 0 1 1 1 0 1 1 1 1 0 1 
-1 0 1 1 1 1 0 1 1 0 1 1 1 0 1 1 1 1 0 1
-1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-*/
-
 
 fn generate_test_board() -> Board {
    let mut board = Board {
@@ -101,7 +77,7 @@ fn generate_board(width: i32, height: i32) -> Board {
    return board;
 }
 
-fn print_board(board: Board) {
+fn render_board(board: Board) {
    fn tile_to_char(num: i32) -> char {
       match num {
          0 => return ' ',
