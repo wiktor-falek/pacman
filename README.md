@@ -5,3 +5,4 @@
 - [ ] Player movement - detect char input and suppress default behaviour
 - [ ] Colission checking
 - [ ] Ghost AI
+- [ ] User interface - level selection, scoreboard
