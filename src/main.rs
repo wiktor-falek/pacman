@@ -1,6 +1,13 @@
+use std::fs;
+
+
 fn main() {
    // initialization
-   let mut board = generate_test_board();
+   //let map = fs::read_to_string("maps/1.txt")
+   //   .expect("Failed to read file");
+   let map = load_map_from_file();
+
+   let mut board = initialize_test_board();
    render_board(board);
 
    /*
@@ -28,7 +35,11 @@ struct Board {
    map: Vec<Vec<i32>>
 }
 
-fn generate_test_board() -> Board {
+fn load_map_from_file() /*vec![vec!]*/ {
+      
+}
+
+fn initialize_test_board() -> Board {
    let mut board = Board {
       width: 20,
       height: 20,
@@ -58,18 +69,21 @@ fn generate_test_board() -> Board {
    return board;
 }
 
-fn generate_board(width: i32, height: i32) -> Board {
+fn initialize_board(map: Vec<Vec<i32>>) -> Board {
+   let height: usize = map.len();
+   let width: usize = map[0].len();
    let mut board = Board {
-      width: width,
-      height: height,
-      map: vec![vec![0; width as usize]; height as usize]
+      width: width as i32,
+      height: height as i32,
+      // map: load_map_from_file()
+      map: vec![vec![0; width]; height]
    };
 
     // generate map
     for y in 0..height {
         for x in 0..width {
             if x == 0 || x == width - 1 || y == 0 || y == height - 1 {
-                board.map[y as usize][x as usize] = 1;
+                board.map[y][x] = 1;
             }
         }
     }
