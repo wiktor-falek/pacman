@@ -1,10 +1,13 @@
 use std::fs;
 
 fn main() {
-   // initialization
-   // let map = fs::read_to_string("maps/1.txt")
-   //          .expect("Failed to read file");
-   let map = load_map_from_file();
+   // initialize: clear console, print something etc
+   
+   // select map
+   // let selected_map = get_map_input()
+   // let map = load_map_from_file(selected_map); 
+
+   generate_map_names();
 
    let mut board = initialize_test_board();
    render_board(board);
@@ -40,11 +43,26 @@ fn generate_map_directories() -> Vec<String> {
    
    for path in fs::read_dir("maps").unwrap() { // XDDD
       let path = path.unwrap().path().display().to_string();
-      println!("{}", path);
       dirs.push(path);
    }
 
    dirs
+}
+
+fn generate_map_names() -> Vec<String> {
+   // takes directories of all maps and returns their names
+   let dirs = generate_map_directories();
+
+   let mut map_names: Vec<String> = Vec::new();
+
+   for dir in dirs {
+      let last_slash_index: usize = dir.rfind('/').unwrap();
+      let dot_index: usize = dir.chars().count() - 4;
+      let slice = (&dir[last_slash_index+1..dot_index]).to_string(); 
+      map_names.push(slice);
+   }
+   
+   map_names
 }
 
 
@@ -54,11 +72,6 @@ fn load_map_from_file() /* -> vec![vec!] */ {
    // print names or all available maps from generate_map_directories()
    // depending on input load chosen map
    let dirs = generate_map_directories();
-
-   for d in dirs {
-      println!("{}", d);
-   }
-
 }
 
 // BOARD 
