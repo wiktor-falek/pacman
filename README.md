@@ -10,13 +10,20 @@
 
 
 # Releasing
-`1. Build the project`
+<h3 style="color: orange;">
+1. Build the project
+</h3>
+
 ```rust
 // in projects main directory
 cargo build --release
 ```
 
-`2. Move maps folder to target/release`
+<h3 style="color: orange;">
+2. Move maps folder to target/release
+</h3>
+
+
 ```bash
 # BASH
 cp maps -r target/release
