@@ -35,14 +35,16 @@ struct Board {
 }
 
 fn generate_map_directories() -> Vec<String> {
-   let filename_vec: Vec<String> = Vec::new();
+   let mut dirs = Vec::new();
 
-   let all_map_paths = fs::read_dir("maps").unwrap();
-   for path in all_map_paths {
-      println!("Name: {}", path.unwrap().path().display());
-      filename_vec.push_str(path);  
+   // XDDD
+   for path in fs::read_dir("../../src/maps").unwrap() {
+      let path = path.unwrap().path().display().to_string();
+      println!("{}", path);
+      dirs.push(path);
    }
-   filename_vec;
+
+   dirs
 }
 
 
