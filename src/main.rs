@@ -9,7 +9,7 @@ fn main() {
 
    generate_map_names();
 
-   let mut board = initialize_test_board();
+   let board = initialize_test_board();
    render_board(board);
 
    /*
@@ -39,14 +39,13 @@ struct Board {
 
 fn generate_map_directories() -> Vec<String> {
    let mut dirs = Vec::new();
-
    
    for path in fs::read_dir("maps").unwrap() { // XDDD
       let path = path.unwrap().path().display().to_string();
       dirs.push(path);
    }
 
-   dirs
+   return dirs;
 }
 
 fn generate_map_names() -> Vec<String> {
@@ -58,11 +57,11 @@ fn generate_map_names() -> Vec<String> {
    for dir in dirs {
       let last_slash_index: usize = dir.rfind('/').unwrap();
       let dot_index: usize = dir.chars().count() - 4;
-      let slice = (&dir[last_slash_index+1..dot_index]).to_string(); 
+      let slice: String = (&dir[last_slash_index+1..dot_index]).to_string(); 
       map_names.push(slice);
    }
    
-   map_names
+   return map_names;
 }
 
 
@@ -77,7 +76,7 @@ fn load_map_from_file() /* -> vec![vec!] */ {
 // BOARD 
 
 fn initialize_test_board() -> Board {
-   let mut board = Board {
+   let board = Board {
       width: 20,
       height: 20,
       map: vec![
