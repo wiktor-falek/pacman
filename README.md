@@ -19,17 +19,30 @@
 cargo build --release
 ```
 
-<h3>
-2. Move maps folder to target/release
-</h3>
+
+## 2. Move maps folder to target/release
 
 
+### Bash
 ```bash
-# BASH
 cp maps -r target/release
 ```
 
-```ps 
-# CMD/PS
+## Powershell/cmd
+
+```cmd
 xcopy maps target\release\ /E
+```
+
+## 3. Run executable
+
+### Bash
+```bash
+./target/release/pacman
+```
+
+### Powershell/cmd
+
+```cmd
+idk
 ```
