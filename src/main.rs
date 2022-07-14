@@ -7,10 +7,10 @@ fn main() {
    // let selected_map = get_map_input()
    // let map = load_map_from_file(selected_map); 
 
-   generate_map_names();
-
    let board = initialize_test_board();
    render_board(board);
+
+   select_map();
 
    /*
    loop {
@@ -65,15 +65,35 @@ fn generate_map_names() -> Vec<String> {
 }
 
 
-// str immutable
-// String when you need to own or modify your string data
+fn select_map() /* -> Board */ {
+   // 1. list names of maps
+   let dir_names = generate_map_directories();
+   let map_names = generate_map_names();
+
+   let mut buffer: String = String::from("Available Maps:\n");
+   for map in map_names {
+      buffer.push_str(&map.to_string());
+      buffer.push_str("\n");
+   }
+   print!("{}", buffer);
+
+   // 2. ask user to select a map
+   //let user_input = "1";
+
+   // 3. user_input -> directory 
+   //let index: usize = map_names.iter().position(|r| r == user_input).unwrap();
+   //let directory = &dir_names[index];
+
+   // 4. let matrix = load_map_from_file(dir);
+
+   // 5. create Board from matrix and return
+}
+
 fn load_map_from_file() /* -> vec![vec!] */ {
    // print names or all available maps from generate_map_directories()
    // depending on input load chosen map
    let dirs = generate_map_directories();
 }
-
-// BOARD 
 
 fn initialize_test_board() -> Board {
    let board = Board {
@@ -113,7 +133,6 @@ fn initialize_board(map: Vec<Vec<i32>>) -> Board {
    let mut board = Board {
       width: width as i32,
       height: height as i32,
-      // map: load_map_from_file()
       map: vec![vec![0; width]; height]
    };
 
@@ -152,5 +171,3 @@ fn render_board(board: Board) {
    }
    print!("{}", buffer);
 }
-
-// USER INPUT HANDLING

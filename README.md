@@ -1,6 +1,7 @@
 # Roadmap
 
 - [x] Initializing and rendering board
+- [ ] User selecting map in console
 - [ ] Loading maps from text files
 - [ ] Player movement - detect input and suppress default terminal behaviour, 
 - [ ] Colission checking
