@@ -1,25 +1,19 @@
 use std::fs;
 
 fn main() {
-   // initialize: clear console, print something etc
+   // init
+   print!("\x1B[2J\x1B[1;1H"); // put cursor at first row and col
    
-   // select map
-   // let selected_map = get_map_input()
-   // let map = load_map_from_file(selected_map); 
 
-   let board = initialize_test_board();
-   render_board(board);
-
-   select_map();
-
-   /*
+   /* let board: Board = */ select_map();
+   let board = initialize_test_board(); // TEMPORARY
+   
    loop {
-      board = update_board(board);
-
-      // draw
       render_board(board);
+      //board = update_board(board);
+      break;
    }
-   */
+
 }
 
 enum Tile {
@@ -40,7 +34,7 @@ struct Board {
 fn generate_map_directories() -> Vec<String> {
    let mut dirs = Vec::new();
    
-   for path in fs::read_dir("maps").unwrap() { // XDDD
+   for path in fs::read_dir("maps").unwrap() {
       let path = path.unwrap().path().display().to_string();
       dirs.push(path);
    }
@@ -82,9 +76,9 @@ fn select_map() /* -> Board */ {
 
    // 3. user_input -> directory 
    //let index: usize = map_names.iter().position(|r| r == user_input).unwrap();
-   //let directory = &dir_names[index];
+   //let dir = &dir_names[index];
 
-   // 4. let matrix = load_map_from_file(dir);
+   // 4. let matrix: vec![vec!] = load_map_from_file(dir);
 
    // 5. create Board from matrix and return
 }
