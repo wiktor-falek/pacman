@@ -37,8 +37,8 @@ struct Board {
 fn generate_map_directories() -> Vec<String> {
    let mut dirs = Vec::new();
 
-   // XDDD
-   for path in fs::read_dir("../../src/maps").unwrap() {
+   
+   for path in fs::read_dir("src/maps").unwrap() { // XDDD
       let path = path.unwrap().path().display().to_string();
       println!("{}", path);
       dirs.push(path);
