@@ -28,7 +28,7 @@ cargo build --release
 cp maps -r target/release
 ```
 
-## Powershell/cmd
+### Powershell/cmd
 
 ```cmd
 xcopy maps target\release\ /E
