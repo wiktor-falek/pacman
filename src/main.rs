@@ -1,10 +1,9 @@
 use std::fs;
 
-
 fn main() {
    // initialization
-   //let map = fs::read_to_string("maps/1.txt")
-   //   .expect("Failed to read file");
+   // let map = fs::read_to_string("maps/1.txt")
+   //          .expect("Failed to read file");
    let map = load_map_from_file();
 
    let mut board = initialize_test_board();
@@ -35,9 +34,32 @@ struct Board {
    map: Vec<Vec<i32>>
 }
 
-fn load_map_from_file() /*vec![vec!]*/ {
-      
+fn generate_map_directories() -> Vec<String> {
+   let filename_vec: Vec<String> = Vec::new();
+
+   let all_map_paths = fs::read_dir("maps").unwrap();
+   for path in all_map_paths {
+      println!("Name: {}", path.unwrap().path().display());
+      filename_vec.push_str(path);  
+   }
+   filename_vec;
 }
+
+
+// str immutable
+// String when you need to own or modify your string data
+fn load_map_from_file() /* -> vec![vec!] */ {
+   // print names or all available maps from generate_map_directories()
+   // depending on input load chosen map
+   let dirs = generate_map_directories();
+
+   for d in dirs {
+      println!("{}", d);
+   }
+
+}
+
+// BOARD 
 
 fn initialize_test_board() -> Board {
    let mut board = Board {
@@ -66,12 +88,14 @@ fn initialize_test_board() -> Board {
          vec![1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ]
       ]
    };
+
    return board;
 }
 
 fn initialize_board(map: Vec<Vec<i32>>) -> Board {
    let height: usize = map.len();
    let width: usize = map[0].len();
+
    let mut board = Board {
       width: width as i32,
       height: height as i32,
@@ -114,3 +138,5 @@ fn render_board(board: Board) {
    }
    print!("{}", buffer);
 }
+
+// USER INPUT HANDLING
