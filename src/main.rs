@@ -38,7 +38,7 @@ fn generate_map_directories() -> Vec<String> {
    let mut dirs = Vec::new();
 
    
-   for path in fs::read_dir("src/maps").unwrap() { // XDDD
+   for path in fs::read_dir("maps").unwrap() { // XDDD
       let path = path.unwrap().path().display().to_string();
       println!("{}", path);
       dirs.push(path);

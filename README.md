@@ -10,7 +10,7 @@
 
 
 # Releasing
-<h3 style="color: orange;">
+<h3>
 1. Build the project
 </h3>
 
@@ -19,7 +19,7 @@
 cargo build --release
 ```
 
-<h3 style="color: orange;">
+<h3>
 2. Move maps folder to target/release
 </h3>
 
